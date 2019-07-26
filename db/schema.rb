@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_044123) do
+ActiveRecord::Schema.define(version: 2019_07_26_050634) do
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 2019_07_23_044123) do
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "img_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "post_file_name"
+    t.string "post_content_type"
+    t.bigint "post_file_size"
+    t.datetime "post_updated_at"
   end
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
