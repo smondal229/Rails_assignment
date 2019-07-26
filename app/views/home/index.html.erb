@@ -1,5 +1,5 @@
 <h1>Home Page</h1>
 
-<%= link_to("Button 1",'user/download.csv') %>
-<%= link_to("Button 2",'employee/download.pdf') %>
-<%= link_to("Button 3",'#') %>
+<%= link_to("Button 1",user_download_path(format: :csv)) %>
+<%= link_to("Button 2",employee_download_path(format: :pdf)) %>
+<%= link_to("Button 3", student_mail_record_path) %>

@@ -8,7 +8,7 @@ class EmployeePdf < Prawn::Document
     arr=Array.new
     arr.push(columns)
     emp.each do |e|
-      arr.push([e.id,e.name,e.email,e.phone_number,e.created_at.to_s,e.updated_at.to_s])
+      arr.push(e.attributes.values.map{|val| val.to_s}) 
     end
     table arr
   end
