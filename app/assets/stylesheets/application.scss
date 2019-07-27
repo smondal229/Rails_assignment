@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.btn{
+  margin: 1rem 0;
+}
+.btn{
+  min-width:150px;
+}

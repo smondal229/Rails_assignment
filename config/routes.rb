@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   root "home#index"
 
-  get "image/new"
-  get "image/show"
-  post "/image/create" => "image#create", as: "image_create"
+  get "images/new"
+  get "images/show"
+  post "/images/create" => "image#create", as: "images_create"
 
-  get "student/mail_record"
+  get "students/mail_record"
 
-  get "employee/search"
-  resources :employee
-  get "employee/download"
+  get "employees/search"
+  get "employees/download"
+  resources :employees
 
-  get "user/download"
+  get "users/download"
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

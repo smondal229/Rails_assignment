@@ -1,4 +1,4 @@
-class EmployeeController < ApplicationController
+class EmployeesController < ApplicationController
   def download
     @employee=Employee.order(:name).limit(50)
 
@@ -24,10 +24,10 @@ class EmployeeController < ApplicationController
     @employee=Employee.new(employee_params)
     if @employee.save
       flash.notice= "Employee record created successfully"
-      redirect_to employee_index_path
+      redirect_to employees_path
     else
       flash.notice= "Please try again"
-      redirect_to new_employee_path
+      redirect_to new_employees_path
     end
   end
 
@@ -44,10 +44,10 @@ class EmployeeController < ApplicationController
     @employee=Employee.find(params[:id])
     if @employee.update(employee_params)
       flash.notice= "Employee record updated successfully"
-      redirect_to employee_index_path
+      redirect_to employees_path
     else
       flash.notice= "Could not update the record"
-      redirect_to employee_index_path
+      redirect_to employees_path
     end
   end
 
@@ -55,7 +55,7 @@ class EmployeeController < ApplicationController
     @employee=Employee.find(params[:id])
     @employee.destroy
     flash.notice= "Employee record deleted successfully"
-    redirect_to employee_index_path
+    redirect_to employees_path
   end
 
   def search

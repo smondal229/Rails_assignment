@@ -4,16 +4,16 @@
   <%= flash[:notice]%>
 </div>
 <% end %>
-<%= form_for :image , url: image_create_path, html: {multipart: true} do |f| %>
-  <div>
-    <%= f.label :img_name, "Title" %>
+<%= form_for :image , url: images_create_path, html: {multipart: true} do |f| %>
+  <div class="form-group">
+    <%= f.label :img_name, "Title", class: "form-control" %>
     <%= f.text_field :img_name %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :post, "Upload Image" %><br/>
     <%= f.file_field :post %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.submit "Submit" %>
   </div>
 <% end %>

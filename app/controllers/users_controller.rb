@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def download
     @user=User.order(:user_name).limit(50)
 

@@ -1,4 +1,4 @@
-class ImageController < ApplicationController
+class ImagesController < ApplicationController
   def new
     @image=Image.new
   end
@@ -11,10 +11,10 @@ class ImageController < ApplicationController
     @image=Image.new(image_params)
     if @image.save
       flash.now.notice="Image has been uploaded successfully"
-      redirect_to image_show_path
+      redirect_to images_show_path
     else
       flash.now.notice="Please try again"
-      redirect_to image_new_path
+      redirect_to images_new_path
     end
   end
   private 
