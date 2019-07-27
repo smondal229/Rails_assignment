@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get "images/new"
   get "images/show"
-  post "/images/create" => "image#create", as: "images_create"
+  post "/images/create" => "images#create", as: "images_create"
 
   get "students/mail_record"
 

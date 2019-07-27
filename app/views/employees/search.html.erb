@@ -2,7 +2,7 @@
 <% if @employee_ids.empty? %>
   <h4>No result found</h4> 
 <% end %>
-<table>
+<table class="table">
   <thead>
     <tr>
       <% Employee.column_names.each do |column_name| %>
@@ -15,6 +15,7 @@
     <% @employee_ids.each do |employee_id| %>
       <% e= Employee.find(employee_id) %>
       <tr>
+        <td><%= e.id %></td>
         <td><%= e.name %></td>
         <td><%= e.email %></td>
         <td><%= e.phone_number %></td>
@@ -25,4 +26,4 @@
   </tbody>
 </table>
 
-<div><%= link_to "Back", root_path %>
+<div><%= link_to "Back", root_path, class: "btn btn-primary" %></div>

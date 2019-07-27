@@ -1,22 +1,23 @@
+<h1>Add New Employee Record</h1>
 <% if flash[:notice] %>
-  <div>
+  <div class="text-warning">
     <%= flash[:notice] %>
   </div>
 <% end %>
 <%= form_for @employee, :url => {:action => "create"} do |f| %>
-  <div>
+  <div class="form-group">
     <%= f.label :name, placeholder: "Enter your name" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :email, placeholder: "Enter your email" %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :phone_number, placeholder: "Enter your phone number" %>
-    <%= f.text_field :phone_number %>
+    <%= f.text_field :phone_number, class: "form-control" %>
   </div>
   <div>
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -4,7 +4,6 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @image= Image.all
   end
 
   def create

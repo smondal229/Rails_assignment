@@ -1,6 +1,5 @@
+<h1>Name : <%= @employee.name %></h1>
 <dl>
-  <dt>Name : </dt>
-  <dd><%= @employee.name %></dd>
   <dt>Email : </dt>
   <dd><%= @employee.email %></dd>
   <dt>Phone number : </dt>
@@ -11,4 +10,4 @@
   <dd><%= @employee.updated_at %></dd>
 </dl>
 
-<%= link_to "Back", employee_index_path %>
+<%= link_to "Back", employees_path, class: "btn btn-primary"  %>

@@ -7,12 +7,14 @@
 <% if Image.blank? %>
   <div>No image is uploaded yet</div>
 <% else %>
-  <div>
+  <div class="row">
     <% Image.all.each do |image| %>
-      <figure>
-        <%= link_to image_tag(image.post.url(:thumb)), image.post.url(:original), target: '_blank' %>
-        <figcaption><%= image.img_name %></figcaption>
-      </figure>
+      <div class="col-sm-3">
+        <figure>
+          <%= link_to image_tag(image.post.url(:thumb)), image.post.url(:original), target: '_blank' %>
+          <figcaption><%= image.img_name %></figcaption>
+        </figure>
+      </div>
     <% end %>
   </div>
 <% end %>

@@ -1,10 +1,12 @@
+<h1>Employee Records</h1>
+
 <% if flash[:notice] %>
-  <div>
+  <div class="text-warning">
     <%= flash[:notice] %>
   </div>
 <% end %>
 
-<table>
+<table class="table">
   <thead>
     <tr>
     <% Employee.column_names.each do |column_name| %>
@@ -15,6 +17,7 @@
   <tbody>
     <% @employee.each do |emp| %>
       <tr>
+        <td><%= emp.id %></td>
         <td><%= emp.name %></td>
         <td><%= emp.email %></td>
         <td><%= emp.phone_number %></td>
@@ -28,7 +31,7 @@
   </tbody>
 </table>
 <div>
-  <%= link_to "New Employee", new_employee_path %></div>
+  <%= link_to "Add New Employee", new_employee_path, class: "btn btn-success" %></div>
 <div>
-  <%= link_to "Back", root_path %>
+  <%= link_to "Back", root_path, class: "btn btn-primary" %>
 </div>
