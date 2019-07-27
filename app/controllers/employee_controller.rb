@@ -59,13 +59,28 @@ class EmployeeController < ApplicationController
   end
 
   def search
-    @keyword=params[:q]
+    @employee_ids=search_keyword
   end
 
   
   private
     def employee_params
       params.require(:employee).permit(:name,:email, :phone_number)
+    end
+
+    def search_keyword
+      ids=[]
+      @keyword=params[:q].to_s.strip.downcase
+      if @keyword==""
+        return ids
+      end
+      Employee.all.each do |employee|
+        if employee.name.downcase.include?(@keyword) or employee.email.include?(@keyword)
+          ids.push(employee.id)
+        end
+      end
+      print ids
+      return ids
     end
 
 end

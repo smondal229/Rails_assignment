@@ -6,9 +6,11 @@
 
 <table>
   <thead>
+    <tr>
     <% Employee.column_names.each do |column_name| %>
       <th><%= column_name %></th>
     <% end %>
+    </tr>
   </thead>
   <tbody>
     <% @employee.each do |emp| %>
