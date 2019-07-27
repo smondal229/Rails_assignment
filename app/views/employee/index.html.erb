@@ -1,0 +1,32 @@
+<% if flash[:notice] %>
+  <div>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+    <% Employee.column_names.each do |column_name| %>
+      <th><%= column_name %></th>
+    <% end %>
+  </thead>
+  <tbody>
+    <% @employee.each do |emp| %>
+      <tr>
+        <td><%= emp.name %></td>
+        <td><%= emp.email %></td>
+        <td><%= emp.phone_number %></td>
+        <td><%= emp.created_at %></td>
+        <td><%= emp.updated_at %></td>
+        <td><%= link_to "View", employee_path(emp) %></td>
+        <td><%= link_to "Edit", edit_employee_path(emp) %></td>
+        <td><%= link_to "Delete", employee_path(emp), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+  <%= link_to "New Employee", new_employee_path %></div>
+<div>
+  <%= link_to "Back", root_path %>
+</div>

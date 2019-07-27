@@ -1,0 +1,22 @@
+<% if flash[:notice] %>
+  <div>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<%= form_for @employee, :url => {:action => "create"} do |f| %>
+  <div>
+    <%= f.label :name, placeholder: "Enter your name" %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :email, placeholder: "Enter your email" %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :phone_number, placeholder: "Enter your phone number" %>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
