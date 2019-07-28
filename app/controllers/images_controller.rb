@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
       redirect_to images_show_path
     else
       flash.now.notice="Please try again"
-      redirect_to images_new_path
+      render("new")
     end
   end
   private 

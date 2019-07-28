@@ -20,7 +20,7 @@
         <td><%= emp.updated_at %></td>
         <td><%= link_to "View", employee_path(emp) %></td>
         <td><%= link_to "Edit", edit_employee_path(emp) %></td>
-        <td><%= link_to "Delete", employee_path(emp), method: :delete %></td>
+        <td><%= link_to "Delete", employee_path(emp), method: :delete, data: {confirm: "Are you sure?"} %></td>
       </tr>
     <% end %>
   </tbody>

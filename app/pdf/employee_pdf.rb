@@ -10,7 +10,7 @@ class EmployeePdf < Prawn::Document
     emp.each do |e|
       arr.push(e.attributes.values.map{|val| val.to_s}) 
     end
-    table arr
+    t=table(arr)
   end
 
 end

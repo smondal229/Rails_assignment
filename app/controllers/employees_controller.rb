@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   def download
-    @employee=Employee.order(:name).limit(50)
+    @employee=Employee.order(:name).limit(49)
 
     respond_to do |format|
       format.html
