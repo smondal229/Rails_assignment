@@ -1,9 +1,6 @@
-<h1>Images list</h1>
-<% if flash[:notice] %>
-<div>
-  <%= flash[:notice]%>
-</div>
-<% end %>
+<% @page_title= "Images List" %>
+<h1><%= @page_title %></h1>
+
 <% if Image.blank? %>
   <div>No image is uploaded yet</div>
 <% else %>

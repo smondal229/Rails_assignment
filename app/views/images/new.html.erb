@@ -1,9 +1,6 @@
-<h1>Add New Image</h1>
-<% if flash[:notice] %>
-<div class="text-warning">
-  <%= flash[:notice]%>
-</div>
-<% end %>
+<% @page_title= "Add New Image" %>
+<h1><%= @page_title %></h1>
+
 <%= form_for @image , url: images_create_path, html: {multipart: true} do |f| %>
   <div class="form-group">
     <%= f.label :img_name, "Title" %>

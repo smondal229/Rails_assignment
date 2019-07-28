@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsAssignment</title>
+    <title>RailsAssignment <%="| #{@page_title}" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +11,11 @@
 
   <body>
     <div class="container">
+      <% if flash[:notice] %>
+        <div class="text-info">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>

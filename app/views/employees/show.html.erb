@@ -1,4 +1,5 @@
-<h1>Name : <%= @employee.name %></h1>
+<% @page_title= "Showing #{@employee.name}" %>
+<h1><%= @page_title %></h1>
 <dl>
   <dt>Email : </dt>
   <dd><%= @employee.email %></dd>

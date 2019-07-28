@@ -1,10 +1,5 @@
-<h1>Employee Records</h1>
-
-<% if flash[:notice] %>
-  <div class="text-warning">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<% @page_title= "Employee Records" %>
+<h1><%= @page_title %></h1>
 
 <table class="table">
   <thead>

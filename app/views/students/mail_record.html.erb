@@ -1,8 +1,5 @@
-<% if flash[:notice] %>
-  <div class="text-info">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<% @page_title= "Mail Student Records" %>
+<h1><%= @page_title %></h1>
 
 <div class="text-left">
   <%= link_to "back",root_path, class: "btn btn-primary" %>

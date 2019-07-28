@@ -27,7 +27,7 @@ class EmployeesController < ApplicationController
       redirect_to employees_path
     else
       flash.notice= "Please try again"
-      redirect_to new_employees_path
+      render("new")
     end
   end
 
@@ -47,7 +47,7 @@ class EmployeesController < ApplicationController
       redirect_to employees_path
     else
       flash.notice= "Could not update the record"
-      redirect_to employees_path
+      render("edit")
     end
   end
 
