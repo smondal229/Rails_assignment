@@ -1,14 +1,15 @@
 class EmployeePdf < Prawn::Document
-  def initialize(emp,columns)
+  def initialize(emp)
     super()
-    p=record_table(emp,columns)
+    p=record_table(emp)
   end
 
-  def record_table(emp,columns)
+  def record_table(emp)
     arr=Array.new
-    arr.push(columns)
+    emp_columns=["id","name","email","phone_number"]
+    arr.push(emp_columns)
     emp.each do |e|
-      arr.push(e.attributes.values.map{|val| val.to_s}) 
+      arr.push(e.attributes.values_at(*emp_columns).map{|val| val.to_s}) 
     end
     table(arr,:header => true) do
       cells.style(:align => :center, :padding => 5)

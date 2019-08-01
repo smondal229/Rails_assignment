@@ -1,7 +1,0 @@
-<% @page_title= "Add New Employee" %>
-
-<h1><%= @page_title %></h1>
-
-<%= form_for @employee, :url => {:action => "create"} do |f| %>
-  <%= render(:partial => "form", :locals =>{:f => f }) %>
-<% end %>

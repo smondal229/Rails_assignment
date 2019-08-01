@@ -1,15 +1,6 @@
 <% @page_title= "Home Page" %>
 <h1><%= @page_title %></h1>
 
-<div class="container">
-  <%= form_tag(employees_search_path, :method => "get") do %>
-    <div class="form-group">
-      <%= label_tag(:q,"Search : ") %>
-      <%= text_field_tag(:q, :class => "form-control") %>
-      <%= submit_tag("Search Employee", class: "btn btn-primary") %>
-    </div>
-  <% end %>
-</div>
 
 <div>
   <%= link_to("Download User Record as CSV",users_download_path(format: :csv), class: "btn btn-primary" ) %>
@@ -24,4 +15,4 @@
   <%= link_to("Upload New Image", images_new_path, class: "btn btn-success") %>
   <%= link_to("View Images", images_show_path, class: "btn btn-success") %>
 </div>
-<%= link_to "CRUD operation on Employee record", employees_path, class: "btn btn-warning" %>
+<%= link_to "CRUD operation on Employee record", customers_path, class: "btn btn-warning" %>

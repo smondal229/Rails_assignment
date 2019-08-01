@@ -1,0 +1,29 @@
+<% @page_title= "Customer Search Results" %>
+<h1><%= @page_title %></h1>
+
+<% if @customer_ids.empty? %>
+  <h4>No result found</h4> 
+<% else %>
+  <table class="table">
+    <thead>
+      <tr>
+        <% Customer.column_names.each do |column_name| %>
+          <th><%= column_name %></th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @customer_ids.each do |customer_id| %>
+        <% c= Customer.find(customer_id) %>
+        <tr>
+          <td><%= c.id %></td>
+          <td><%= c.name %></td>
+          <td><%= c.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<div><%= link_to "Back", customers_path, class: "btn btn-primary" %></div>

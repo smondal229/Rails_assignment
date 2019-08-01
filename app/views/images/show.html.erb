@@ -1,7 +1,7 @@
 <% @page_title= "Images List" %>
 <h1><%= @page_title %></h1>
 
-<% if Image.blank? %>
+<% if Image.count!=0 %>
   <div>No image is uploaded yet</div>
 <% else %>
   <div class="row">
