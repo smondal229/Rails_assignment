@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
       flash.now.notice="Image has been uploaded successfully"
       redirect_to images_show_path
     else
-      flash.now.notice="Please try again"
+      flash.now.notice="Please insert image correctly"
       render("new")
     end
   end

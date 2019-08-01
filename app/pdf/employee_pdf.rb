@@ -9,7 +9,7 @@ class EmployeePdf < Prawn::Document
     emp_columns=["id","name","email","phone_number"]
     arr.push(emp_columns)
     emp.each do |e|
-      arr.push(e.attributes.values_at(*emp_columns).map{|val| val.to_s}) 
+      arr.push(e.attributes.values_at("id","name","email","phone_number").map{|val| val.to_s}) 
     end
     table(arr,:header => true) do
       cells.style(:align => :center, :padding => 5)

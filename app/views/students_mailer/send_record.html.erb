@@ -31,10 +31,9 @@
   <tbody>
     <% @student.each do |student| %>
       <tr>
-        <td><%= student.id %></td>
-        <td><%= student.name %></td>
-        <td><%= student.email %></td>
-        <td><%= student.phone_number %></td>
+        <% student_columns.each do |col| %>
+          <td><%= student.attributes.values_at(col)[0] %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
