@@ -27,4 +27,4 @@
 /config/master.key
 
 #Ignore image uploads
-/public/system/images
+/public/system/images/posts

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def download
-    @user=User.order(:user_name).limit(49)
+    @user=User.order_fifty(:user_name)
 
     respond_to do |format|
       format.html
