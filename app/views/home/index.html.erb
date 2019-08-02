@@ -3,16 +3,30 @@
 
 
 <div>
-  <%= link_to("Download User Record as CSV",users_download_path(format: :csv), class: "btn btn-primary" ) %>
+  <%= link_to(users_download_path(format: :csv), class: "btn btn-primary") do %>
+    <span>Download User Record as CSV</span>
+  <% end %>
 </div>
-<div class="">
-  <%= link_to("Download Employee Record as PDF",employees_download_path(format: :pdf), class: "btn btn-primary") %>
+<div>
+  <%= link_to(employees_download_path(format: :pdf), class: "btn btn-primary") do %>
+    <span>Download Employee Record as PDF</span>
+  <% end %>
 </div>
-<div class="">
-  <%= link_to("Mail Student Records", students_mail_record_path, class: "btn btn-danger") %>
+<div>
+  <%= link_to(students_mail_record_path, class: "btn btn-danger") do %>
+    <span>Mail Student Records</span>
+  <% end %>
 </div>
-<div class="">
-  <%= link_to("Upload New Image", images_new_path, class: "btn btn-success") %>
-  <%= link_to("View Images", images_show_path, class: "btn btn-success") %>
+<div>
+  <%= link_to(images_new_path, class: "btn btn-success") do %>
+    <span>Upload New Image</span>
+  <% end %>
+  <%= link_to(images_show_path, class: "btn btn-success") do %>
+    <span>View Images</span>
+  <% end %>
 </div>
-<%= link_to "CRUD operation on Customer record", customers_path, class: "btn btn-warning" %>
+<div>
+  <%= link_to(customers_path, class: "btn btn-warning") do %>
+    <span>CRUD operation on Customer record</span>
+  <% end %>
+</div>

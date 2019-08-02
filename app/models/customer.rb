@@ -5,4 +5,6 @@ class Customer < ApplicationRecord
     validates :email, presence: true, null: false, uniqueness: true, format: { with: EMAIL_REGEX }
     before_save { self.email=self.email.to_s.downcase }
 
+    scope :search_ignore_case, ->(keyword){where("lower(name) like ?||email like ?","%#{ keyword }%","%#{ keyword }%")}
+
 end

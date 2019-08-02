@@ -8,14 +8,14 @@ class ImagesController < ApplicationController
 
   def create
     @image=Image.new(image_params)
-    if @image.save
-      flash.now.notice="Image has been uploaded successfully"
-      redirect_to images_show_path
+    if @image.save 
+      redirect_to(images_show_path, flash: { notice: "Image has been uploaded successfully" } )
     else
-      flash.now.notice="Please insert image correctly"
-      render("new")
+      flash[:notice] = "Please insert image correctly"
+      render action: "new"
     end
   end
+  
   private 
     def image_params
       params.require(:image).permit(:img_name, :post)

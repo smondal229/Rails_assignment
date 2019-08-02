@@ -1,7 +1,7 @@
 <% @page_title= "Customer Search Results" %>
 <h1><%= @page_title %></h1>
 
-<% if @customer_ids.empty? %>
+<% if @customers.empty? %>
   <h4>No result found</h4> 
 <% else %>
   <table class="table">
@@ -12,18 +12,21 @@
         <% end %>
       </tr>
     </thead>
-
+    
     <tbody>
-      <% @customer_ids.each do |customer_id| %>
-        <% c= Customer.find(customer_id) %>
+      <% @customers.each do |customer| %>
         <tr>
-          <td><%= c.id %></td>
-          <td><%= c.name %></td>
-          <td><%= c.email %></td>
+          <td><%= customer.id %></td>
+          <td><%= customer.name %></td>
+          <td><%= customer.email %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% end %>
 
-<div><%= link_to "Back", customers_path, class: "btn btn-primary" %></div>
+<div>
+  <%= link_to(customers_path, class: "btn btn-primary") do %>
+    <span>Back</span>
+  <% end %>
+</div>

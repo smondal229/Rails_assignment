@@ -5,4 +5,8 @@
   <dd><%= @customer.email %></dd>
 </dl>
 
-<%= link_to "Back", customers_path, class: "btn btn-primary"  %>
+<div>
+  <%= link_to(customers_path, class: "btn btn-primary") do %>
+    <span>Back</span>
+  <% end %>
+</div>

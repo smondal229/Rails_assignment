@@ -10,11 +10,10 @@ class CustomersController < ApplicationController
   def create
     @customer=Customer.new(customer_params)
     if @customer.save
-      flash.notice= "Customer record created successfully"
-      redirect_to customers_path
+      redirect_to customers_path, flash: { notice: "Customer record created successfully" }
     else
-      flash.notice= "Please enter record correctly"
-      render("new")
+      flash[:notice] = "Please enter record correctly"
+      render action: "new"
     end
   end
 
@@ -30,23 +29,22 @@ class CustomersController < ApplicationController
   def update
     @customer=Customer.find(params[:id])
     if @customer.update(customer_params)
-      flash.notice= "Customer record updated successfully"
-      redirect_to customers_path
+      redirect_to customers_path, flash: { notice: "Customer record updated successfully" }
     else
-      flash.notice= "Could not update the record"
-      render("edit")
+      flash[:notice] = "Could not update the record"
+      render action: "edit"
     end
   end
 
   def destroy
     @customer=Customer.find(params[:id])
     @customer.destroy
-    flash.notice= "Customer record deleted successfully"
-    redirect_to customers_path
+    redirect_to(customers_path, flash: { notice: "Customer record deleted successfully" } )
   end
 
   def search
-    @customer_ids=search_keyword
+    @keyword=params[:q].to_s.strip.downcase
+    @customers=Customer.search_ignore_case(@keyword)
   end
 
   
@@ -55,18 +53,4 @@ class CustomersController < ApplicationController
       params.require(:customer).permit(:name,:email)
     end
 
-    def search_keyword
-      ids=[]
-      @keyword=params[:q].to_s.strip.downcase
-      if @keyword==""
-        return ids
-      end
-      Customer.all.each do |customer|
-        if customer.name.downcase.include?(@keyword) or customer.email.include?(@keyword)
-          ids.push(customer.id)
-        end
-      end
-      print ids
-      return ids
-    end
 end

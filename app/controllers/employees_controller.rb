@@ -6,7 +6,7 @@ class EmployeesController < ApplicationController
       format.html
       format.pdf do
         pdf= EmployeePdf.new(@employee)
-        send_data pdf.render, filename: "employees-#{Time.now}.pdf", type: 'application/pdf'
+        send_data(pdf.render, filename: "employees-#{Time.now}.pdf", type: 'application/pdf')
       end
     end
   end

@@ -4,5 +4,7 @@
 <%= render(partial: "form", locals: { action: "update" }) %>
 
 <div>
-  <%= link_to "Back", customers_path, class: "btn btn-primary" %>
+  <%= link_to(customers_path, class: "btn btn-primary") do %>
+    <span>Back</span>
+  <% end %>
 </div>
