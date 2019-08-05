@@ -6,29 +6,25 @@
 # database schema. If you need to create the application database on another
 # system, you should be using db:schema:load, not running all the migrations
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you"ll amass, the slower it"ll run and the greater likelihood for issues).
+# you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It"s strongly recommended that you check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_01_025742) do
+ActiveRecord::Schema.define(version: 2019_08_05_163955) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "name", null: false
+    t.string "email", null: false
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "phone_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "img_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "img_name", null: false
     t.string "post_file_name"
     t.string "post_content_type"
     t.bigint "post_file_size"
@@ -39,16 +35,12 @@ ActiveRecord::Schema.define(version: 2019_08_01_025742) do
     t.string "name"
     t.string "email"
     t.string "phone_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "user_name"
     t.string "user_email"
     t.string "phone_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

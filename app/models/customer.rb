@@ -1,8 +1,8 @@
 class Customer < ApplicationRecord
-    validates :name, presence: true, null: false, uniqueness: true
+    validates :name, presence: true, uniqueness: true
 
-    EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-    validates :email, presence: true, null: false, uniqueness: true, format: { with: EMAIL_REGEX }
+    EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,4})\z/i
+    validates :email, presence: true, format: { with: EMAIL_REGEX }, uniqueness: true
     before_save { self.email=self.email.to_s.downcase }
 
     scope :search_ignore_case, ->(keyword){where("lower(name) like ?||email like ?","%#{ keyword }%","%#{ keyword }%")}

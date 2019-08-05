@@ -1,7 +1,6 @@
-
-<% if params[:q].present? %>
-  <% @page_title = "Search results for for \"#{params[:q]}\"" %>
-  <% @back_path = customer_path %>
+<% if !params[:q].nil? %>
+  <% @page_title = "Search results for \"#{params[:q].join("")}\"" %>
+  <% @back_path = customers_path %>
 <% else %>
   <% @page_title = "Customer Records" %>
   <% @back_path = root_path %>
