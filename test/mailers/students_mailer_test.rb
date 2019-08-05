@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class StudentMailerTest < ActionMailer::TestCase
   test "send_record" do

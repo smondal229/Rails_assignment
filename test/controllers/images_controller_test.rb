@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ImagesControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do

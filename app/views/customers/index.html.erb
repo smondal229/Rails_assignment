@@ -1,24 +1,24 @@
 
 <% if params[:q].present? %>
-  <% @page_title="Search results for for \"#{params[:q]}\"" %>
-  <% @back_path="customer_path" %>
+  <% @page_title = "Search results for for \"#{params[:q]}\"" %>
+  <% @back_path = customer_path %>
 <% else %>
-  <% @page_title= "Customer Records" %>
-  <% @back_path="root_path" %>
+  <% @page_title = "Customer Records" %>
+  <% @back_path = root_path %>
 <% end %>
 <h1><%= @page_title %></h1>
 
 <div class="container">
-  <%= form_for(@customer, :method => "get") do %>
+  <%= form_for("", :method => "get") do |f| %>
     <div class="form-group">
-      <%= label_tag("q","Search : ") %>
-      <%= text_field_tag "q", nil, placeholder:"Search customers", class: "form-control w-25" %>
+      <%= label("q","Search : ") %>
+      <%= text_field("q", nil, placeholder:"Search customers", class: "form-control w-25") %>
       <%= submit_tag("Search Customer", class: "btn btn-primary") %>
     </div>
   <% end %>
 </div>
 
-<% if Customer.count!=0 %>
+<% if @customer.count!=0 %>
   <table class="table">
     <thead>
       <tr>

@@ -45,7 +45,7 @@ class CustomersController < ApplicationController
   def destroy
     @customer=Customer.find(params[:id])
     @customer.destroy
-    redirect_to(customers_path, flash: { notice: "Customer record deleted successfully" } )
+    redirect_to(customers_path, flash: { success: "Customer record deleted successfully" } )
   end
   
   private
