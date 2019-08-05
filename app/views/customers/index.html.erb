@@ -1,8 +1,15 @@
-<% @page_title= "Customer Records" %>
+
+<% if params[:q].present? %>
+  <% @page_title="Search results for for \"#{params[:q]}\"" %>
+  <% @back_path="customer_path" %>
+<% else %>
+  <% @page_title= "Customer Records" %>
+  <% @back_path="root_path" %>
+<% end %>
 <h1><%= @page_title %></h1>
 
 <div class="container">
-  <%= form_tag(customers_search_path, :method => "get") do %>
+  <%= form_for(@customer, :method => "get") do %>
     <div class="form-group">
       <%= label_tag("q","Search : ") %>
       <%= text_field_tag "q", nil, placeholder:"Search customers", class: "form-control w-25" %>
@@ -15,11 +22,12 @@
   <table class="table">
     <thead>
       <tr>
-      <% Customer.column_names.each do |column_name| %>
-        <th><%= column_name %></th>
-      <% end %>
+        <th>ID</th>
+        <th>Name</th>
+        <th>E-mail</th>
       </tr>
     </thead>
+
     <tbody>
       <% @customer.each do |c| %>
         <tr>
@@ -40,7 +48,7 @@
   <% end %>
 </div>
 <div>
-  <%= link_to(root_path, class: "btn btn-primary") do %>
+  <%= link_to(@back_path, class: "btn btn-primary") do %>
     <span>Back</span>
   <% end %>
 </div>
