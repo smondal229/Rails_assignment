@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
   def create
     @image=Image.new(image_params)
     if @image.save 
-      redirect_to(images_show_path, flash: { notice: "Image has been uploaded successfully" } )
+      redirect_to(images_show_path, flash: { notice: "Image has been uploaded successfully" })
     else
       flash[:error]=@customer.errors.full_messages.to_sentence
       render action: "new"
