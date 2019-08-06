@@ -11,9 +11,10 @@ class EmployeePdf < Prawn::Document
     emp.each do |e|
       arr.push(e.attributes.values_at("id","name","email","phone_number").map{|val| val.to_s}) 
     end
-    table(arr,:header => true) do
-      cells.style(:align => :center, :padding => 5)
-      column(0).style(:width => 30)
+    table(arr,header: true) do |table|
+      table.row(0).font_style= :bold
+      table.cells.style(align: :center, padding: 5)
+      table.column(0).style(width: 40)
     end
 
   end
