@@ -1,5 +1,5 @@
 <% if !params[:q].nil? %>
-  <% @page_title = "Search results for \"#{params[:q].join("")}\"" %>
+  <% @page_title = "Search results for \"#{ params[:q] }\"" %>
   <% @back_path = customers_path %>
 <% else %>
   <% @page_title = "Customer Records" %>
@@ -8,10 +8,10 @@
 <h1><%= @page_title %></h1>
 
 <div class="container">
-  <%= form_for("", :method => "get") do |f| %>
+  <%= form_tag(customers_path, :method => "get", class: "form-inline") do |f| %>
     <div class="form-group">
-      <%= label("q","Search : ") %>
-      <%= text_field("q", nil, placeholder:"Search customers", class: "form-control w-25") %>
+      <%= label_tag(:q,"Search : ") %>
+      <%= text_field_tag(:q, params[:q] , class: "form-control w-25") %>
       <%= submit_tag("Search Customer", class: "btn btn-primary") %>
     </div>
   <% end %>
@@ -40,6 +40,8 @@
       <% end %>
     </tbody>
   </table>
+<% else %>
+  <h4 class="text-info">No result found !</h4>
 <% end %>
 <div>
   <%= link_to(new_customer_path, class: "btn btn-primary") do %>

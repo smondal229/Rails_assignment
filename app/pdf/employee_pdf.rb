@@ -6,7 +6,7 @@ class EmployeePdf < Prawn::Document
 
   def record_table(emp)
     arr=Array.new
-    emp_columns=["id","name","email","phone_number"]
+    emp_columns=["ID","Name","E-Mail","Phone Number"]
     arr.push(emp_columns)
     emp.each do |e|
       arr.push(e.attributes.values_at("id","name","email","phone_number").map{|val| val.to_s}) 

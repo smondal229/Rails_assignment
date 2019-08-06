@@ -1,8 +1,8 @@
 <% @page_title= "Add New Image" %>
 <h1><%= @page_title %></h1>
 
-<%= form_for @image , url: images_create_path, html: {multipart: true} do |f| %>
-  <div class="form-group">
+<%= form_for @image , url: images_create_path, html: {multipart: true}  do |f| %>
+  <div class="form-group form-inline">
     <%= f.label :img_name, "Title" %>
     <%= f.text_field :img_name, placeholder:"Give a Title here", class: "form-control" %>
   </div>
