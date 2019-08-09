@@ -14,8 +14,8 @@
       <% if !flash.empty? %>
         <div id="flash"> 
           <% flash.keys.each do |f| %> 
-            <% @class= (f=="error")? "#{f} text-danger" : "#{f} text-success" %>
-            <div class= "<%= @class %>" >
+            <% @class = (f=="error")? "#{f} text-danger" : "#{f} text-success" %>
+            <div class = "<%= @class %>" >
               <%= flash[f] %>
             </div>
           <% end %>   
