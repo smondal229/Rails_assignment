@@ -3,23 +3,23 @@ class CustomersController < ApplicationController
   before_action :find_param_id,  only: [:show, :edit, :destroy, :update]
   def index
     if params[:q].present?
-      @keyword=params[:q].to_s.strip.downcase
-      @customer=Customer.search_ignore_case(@keyword)
+      @keyword = params[:q].to_s.strip.downcase
+      @customer = Customer.search_ignore_case(@keyword)
     else
-      @customer=Customer.all
+      @customer = Customer.all
     end
   end
 
   def new
-    @customer=Customer.new
+    @customer = Customer.new
   end
   def create
-    @customer=Customer.new(customer_params)
+    @customer = Customer.new(customer_params)
     if @customer.save
       redirect_to customers_path, flash: { success: "Customer record created successfully" }
     else
-      flash[:error]=@customer.errors.full_messages.to_sentence
-      render action: "new"
+      flash[:error] = @customer.errors.full_messages.to_sentence   #flash has to be in list item
+      render "new"
     end
   end
 
@@ -34,8 +34,8 @@ class CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to customers_path, flash: { success: "Customer record updated successfully" }
     else
-      flash[:error]=@customer.errors.full_messages.to_sentence
-      render action: "edit"
+      flash[:error]=@customer.errors.full_messages.to_sentence    #flash has to be in list item
+      render "edit"
     end
   end
 

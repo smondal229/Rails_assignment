@@ -7,7 +7,7 @@ class StudentsMailer < ApplicationMailer
   #
   def send_record
     @greeting = "Hi"
-    @student=Student.order_fifty(:name)
+    @student=Student.order_fifty_student(:name)
     mail(to: "to@example.org", subject: "Students record")
   end
 end

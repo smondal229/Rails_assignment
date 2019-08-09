@@ -22,18 +22,20 @@
 <table class="table">
   <thead>
     <tr>
-      <% student_columns.each do |col| %>
-        <th><%= col %></th>
-      <% end %>
+      <th>ID</th>
+      <th>Name</th>
+      <th>E-Mail</th>
+      <th>Phone Number</th>
     </tr>
   </thead>
 
   <tbody>
     <% @student.each do |student| %>
       <tr>
-        <% student_columns.each do |col| %>
-          <td><%= student.attributes.values_at(col)[0] %></td>
-        <% end %>
+        <td><%= student.id %></td>
+        <td><%= student.name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.phone_number %></td>
       </tr>
     <% end %>
   </tbody>

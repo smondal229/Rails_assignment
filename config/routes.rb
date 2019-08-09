@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   root "home#index"
 
-  get "images/new"
-  get "images/show"
-  post "/images/create"
+  resources :images, only: [:new, :create, :index]
 
   get "students/mail_record"
 
