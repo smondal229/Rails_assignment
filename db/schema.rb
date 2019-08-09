@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_08_09_070857) do
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
+    t.index ["name", "email"], name: "index_customers_on_name_and_email", unique: true
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

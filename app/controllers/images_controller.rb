@@ -12,7 +12,6 @@ class ImagesController < ApplicationController
     if @image.save 
       redirect_to(images_path, flash: { notice: "Image has been uploaded successfully" })
     else
-      flash[:error] = @image.errors.full_messages.to_sentence
       render "new"
     end
   end

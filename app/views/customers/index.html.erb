@@ -5,13 +5,13 @@
   <% @page_title = "Customer Records" %>
   <% @back_path = root_path %>
 <% end %>
+
 <h1><%= @page_title %></h1>
 
-<div class="container">
+<div class = "container">
   <%= form_tag(customers_path, method: "get", class: "form-inline") do |f| %>
-    <div class="form-group">
-      <%= label_tag(:q,"Search : ") %>
-      <%= text_field_tag(:q, params[:q] , class: "form-control w-25") %>
+    <div class = "form-group">
+      <%= text_field_tag(:q, params[:q] , class: "form-control w-25", placeholder: "Search Customer") %>
       <%= submit_tag("Search Customer", class: "btn btn-primary") %>
     </div>
   <% end %>

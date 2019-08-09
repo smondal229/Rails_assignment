@@ -7,7 +7,7 @@
   <div class="row">
     <% @image.each do |image| %>
       <div class="col-sm-3">
-        <%= link_to(image.post.url(:original), target: "_blank") do%>
+        <%= link_to(image.post.url(:original), target: "_blank") do %>
           <figure>
             <%= image_tag(image.post.url(:thumb), alt: "#{image.img_name}") %>
             <figcaption><%= image.img_name %></figcaption>

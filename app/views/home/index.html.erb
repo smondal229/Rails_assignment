@@ -1,20 +1,24 @@
-<% @page_title= "Home Page" %>
+<% @page_title = "Home Page" %>
 <h1><%= @page_title %></h1>
 
 
 <div>
   <%= link_to("Download User Record as CSV", users_download_path(format: :csv), class: "btn btn-primary") %>
 </div>
+
 <div>
   <%= link_to("Download Employee Record as PDF", employees_download_path(format: :pdf), class: "btn btn-primary") %>
 </div>
+
 <div>
   <%= link_to("Mail Student Records", students_mail_record_path, class: "btn btn-danger") %>
 </div>
+
 <div>
   <%= link_to("Upload New Image", new_image_path, class: "btn btn-success") %>
   <%= link_to("View Images", images_path, class: "btn btn-success") %>
 </div>
+
 <div>
   <%= link_to("CRUD operation on Customer record", customers_path, class: "btn btn-warning") %>
 </div>
